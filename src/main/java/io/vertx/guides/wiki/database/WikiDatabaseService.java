@@ -10,11 +10,15 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ext.jdbc.JDBCClient;
 
 import java.util.HashMap;
+import java.util.List;
 
 @ProxyGen
 public interface WikiDatabaseService {
   @Fluent
   WikiDatabaseService fetchAllPages(Handler<AsyncResult<JsonArray>> resultHandler);
+
+  @Fluent
+  WikiDatabaseService fetchAllPagesData(Handler<AsyncResult<List<JsonObject>>> resultHandler);
 
   @Fluent
   WikiDatabaseService fetchPage(String name, Handler<AsyncResult<JsonObject>> resultHandler);
